@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sort Learn</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!--  head line -->
+  <h1>Sort the array in ascending / descending order </h1>
+
+  <script>
+    // Define an array of numbers
+    let numbers = [5, 2, 9, 1, 7];
+
+    // Sort the array in ascending order
+    numbers.sort(function (a, b) {
+      return a - b;
+    });
+
+    console.log("Sorted numbers (ascending):", numbers);
+
+    // Sort the array in descending order
+    numbers.sort(function (a, b) {
+      return b - a;
+    });
+
+    console.log("Sorted numbers (descending):", numbers);
+  </script>
+</body>
+
+</html>
