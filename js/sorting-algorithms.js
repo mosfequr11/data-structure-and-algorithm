@@ -28,7 +28,7 @@ var arr = [5, 3, 8, 1, 2];
 var sortedArray = funBubbleSort(arr);
 
 // Output the sorted array
-console.log(sortedArray);
+// console.log(sortedArray);
 
 //JavaScript Bubble Sort Implementation Descending order
 function funBubbleSortDescending(arr) {
@@ -49,7 +49,38 @@ function funBubbleSortDescending(arr) {
 var arr = [5, 3, 8, 1, 2];
 
 // Call the funBubbleSortDescending function and pass the array as an argument
-var sortedArray = funBubbleSortDescending(arr);
+var sortedArrayesc = funBubbleSortDescending(arr);
 
 // Output the sorted array
-console.log(sortedArray);
+// console.log(sortedArrayesc);
+
+/// selectionSort
+function selectionSort(arr) {
+  const n = arr.length;
+
+  for (let i = 0; i < n - 1; i++) {
+    let minIndex = i;
+
+    // Find the index of the minimum element in the remaining unsorted array
+    for (let j = i + 1; j < n; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
+      }
+    }
+
+    // Swap the minimum element with the first element of the unsorted part
+    if (minIndex !== i) {
+      let temp = arr[i];
+      arr[i] = arr[minIndex];
+      arr[minIndex] = temp;
+    }
+  }
+
+  return arr;
+}
+
+// Example usage:
+const array = [64, 25, 12, 22, 11];
+console.log("Original Array: ", array);
+console.log("Sorted Array: ", selectionSort(array.slice()));
+// Make sure to use slice() to create a copy of the array
