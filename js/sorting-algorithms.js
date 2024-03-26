@@ -81,6 +81,34 @@ function selectionSort(arr) {
 
 // Example usage:
 const array = [64, 25, 12, 22, 11];
-console.log("Original Array: ", array);
-console.log("Sorted Array: ", selectionSort(array.slice()));
+// console.log("Original Array: ", array);
 // Make sure to use slice() to create a copy of the array
+// console.log("Sorted Array: ", selectionSort(array.slice()));
+// console.log("Selection Sorted Array: ", selectionSort(array));
+
+/// Insertion Sort algorithm
+function insertionSort(arr) {
+  const n = arr.length;
+
+  for (let i = 1; i < n; i++) {
+    let current = arr[i];
+    let j = i - 1;
+
+    // Move elements of arr[0..i-1], that are greater than current, to one position ahead of their current position
+    while (j >= 0 && arr[j] > current) {
+      arr[j + 1] = arr[j];
+      j--;
+      // console.log(j);
+    }
+
+    arr[j + 1] = current;
+    // console.log(current);
+  }
+
+  return arr;
+}
+
+// Example usage:
+const arrayin = [44, 67, 12, 56, 13];
+console.log("Original Array: ", arrayin);
+console.log("Insertion Sorted Array: ", insertionSort(arrayin));
