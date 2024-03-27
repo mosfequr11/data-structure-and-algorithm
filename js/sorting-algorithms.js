@@ -87,6 +87,7 @@ const array = [64, 25, 12, 22, 11];
 // console.log("Selection Sorted Array: ", selectionSort(array));
 
 /// Insertion Sort algorithm
+// Initially, the first two elements of the array are compared in insertion sort
 function insertionSort(arr) {
   const n = arr.length;
 
@@ -110,5 +111,45 @@ function insertionSort(arr) {
 
 // Example usage:
 const arrayin = [44, 67, 12, 56, 13];
-console.log("Original Array: ", arrayin);
-console.log("Insertion Sorted Array: ", insertionSort(arrayin));
+// console.log("Original Array: ", arrayin);
+// console.log("Insertion Sorted Array: ", insertionSort(arrayin));
+
+// Merge sort is defined as a sorting algorithm that works by dividing an array into smaller subarrays, sorting each subarray, and then merging the sorted subarrays back together to form the final sorted array.
+// In simple terms, we can say that the process of merge sort is to divide the array into two halves, sort each half, and then merge the sorted halves back together. This process is repeated until the entire array is sorted.
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  const middle = Math.floor(arr.length / 2);
+  const left = arr.slice(0, middle);
+  console.log(middle);
+  const right = arr.slice(middle);
+  console.log(middle);
+
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+  let result = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+}
+
+// Example usage:
+const arrayMerge = [8, 3, 9, 5, 1, 7, 2, 4, 6];
+console.log("Original array:", arrayMerge);
+const sortedArray = mergeSort(arrayMerge);
+console.log("Sorted array:", sortedArray);
